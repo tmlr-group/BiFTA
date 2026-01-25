@@ -1,6 +1,6 @@
 # Let's Roll a BiFTA: Bi-refinement for Fine-grained Text-visual Alignment in Vision-Language Models
 
-This repository is the official PyTorch implementation of the paper: Let's Roll a BiFTA:
+This repository is the official PyTorch implementation of the **TMLR 2026** paper: Let's Roll a BiFTA:
 Bi-refinement for Fine-grained Text-visual Alignment in Vision-Language Models
 
 **Abstract:**
@@ -17,32 +17,44 @@ diversity in the remaining descriptions. BiFTA achieves superior zero-shot perfo
 benchmark datasets for both ViT-based and ResNet-based CLIP, justifying the necessity to
 remove redundant information in visual-text alignment.
 
-## Environment
-- Python (3.12.3)
-- Cuda (12.2.0)
-- Pytorch (2.3.0)
 
+## Environment Setup
 
-## Installation
-```
-    conda create -n bifta
-    conda activate bifta
-    pip install -r requirements.txt
+- Python 3.12.3
+- CUDA 12.2.0
+- PyTorch 2.3.0
+
+```bash
+conda create -n bifta python=3.12
+conda activate bifta
+pip install -r requirements.txt
 ```
 
 ## Dataset Preparation
-To implement the results, please modify the `data_path = ""` in `config` of this repository to where your data is stored.
 
+Modify `data_path` in the config files under `configs/` to point to your data location.
 
-## Step 2.1: Running Code for Baselines
-```
-  cd BiFTA
-  python main --dataseed [seed] --dataset [dataset] --model_size [model_size]
+Supported datasets:
+- ImageNet
+- ImageNet-V2
+- CUB-200-2011
+- Oxford Pets
+- DTD
+- Food-101
+- Places365
+
+## Usage
+
+### Run Main Evaluation
+```bash
+python main.py --dataset [dataset] --seed [seed] --model_size [model_size]
 ```
 
 
 ## Acknowledgements
 
-This repo is built upon these previous works:
-- **Masked**
+This repo builds upon:
+- [WCA](https://github.com/JinhaoLee/WCA)
+- [AttrVR](https://github.com/tmlr-group/AttrVR)
 
+## Citation
