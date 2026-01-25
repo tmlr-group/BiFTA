@@ -1,0 +1,38 @@
+model_size: ViT-B/32
+batch_size: 32
+dataset: imagenet
+data_path : data/imagenet/val
+
+alpha: 0.5
+n_samples: 100
+iou_threshold: 0.85
+max_queue_len: 100
+n_run: 20
+patch_n: 60
+
+methods:
+  - clip: 
+      name: clip
+      enabled: False
+  - clip-e:
+      name: clip-e
+      enabled: False
+  - clip-d:
+      name: clip-d
+      enabled: False   
+  - waffle:
+      name: waffle
+      enabled: False
+  - cupl:
+      name: cupl
+      enabled: False
+  - wca:
+      name: wca
+      enabled: True
+      image_scale: 4.0
+      text_scale: 2.0
+  - bifta:
+      name: bifta
+      enabled: True
+      image_scale: 4.0
+      text_scale: 2.0
